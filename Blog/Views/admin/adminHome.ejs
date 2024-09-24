@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+        color:white;
+        margin-bottom: 15px;
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items:center;
+        }
+        body{
+            display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+            background-color: black;
+        }
+        .article{ 
+        display:flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items:center;
+        background-color:rgba(54, 100, 184, 0.664);;
+        box-shadow: 3px 3px 5px white;
+        width:600px;
+        color:white;
+        row-gap: 2px;
+        padding:20px;
+        margin-top: 15px;
+        border-radius: 25px;
+        font-size: x-large;
+          }
+        .article-right{
+            display:flex;
+               flex-direction: row;
+              justify-content:space-between;
+            align-items:center;
+            text-decoration: none;
+            padding-right:10px;
+            gap:5px; 
+          
+        }
+        .btn{
+            
+           
+            color:white;
+            border-radius: 5px;
+           
+            
+        }
+        .Total{
+            flex-direction: column;
+              justify-content:center;
+            align-items:center;
+            display:flex;
+            line-height: 20px;
+        }
+        
+        .add-article{
+            margin-top:20px;
+            font-size: large;
+            padding: 5px;
+            width: 200px;
+            border-radius:30px;
+            background-color: rgb(126, 65, 184);
+               flex-direction: row;
+              justify-content:center;
+              color: white;
+            align-items:center;
+        }
+    </style>
+</head>
+<body>
+    <div  class="Total"  >
+    <h1 >Articles</h1>
+ 
+       <div   class="main">
+             <% articles.forEach(article=>{ %>
+                <div class="article">
+            <div class="artcile-left">  <%= article.title %>  </div>
+            <div class="article-right">
+            <!-- edit-form -->
+
+            <form class="btn" action="/admin/edit/<%=article.id%>" method="PUT" >
+               <button type="submit">Edit</button>
+            </form>
+            
+            <form  class="btn" action="/admin/delete/<%=article.id%>?_method=DELETE" method="POST" >
+                
+                <button type="submit">Delete</button>
+             </form>
+
+
+
+        </div>
+    </div>
+      
+            
+       <% }) %>
+
+
+
+
+ 
+    </div>
+    <Form  action="/admin/new" method="GET" >
+    <button  class="add-article"  >Add article</button>
+     </Form>
+</div>
+</body>
+</html>

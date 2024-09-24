@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:white;
+            margin-bottom: 50px;
+            display:flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items:center;
+        }
+        body{
+            padding-left: 500px;
+            padding-right:500px;
+            background-color: black;
+            
+        }
+        .article{ 
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items:center;
+        background-color:rgba(54, 100, 184, 0.664);
+        text-decoration: none;
+        color:white;
+        row-gap: 2px;
+        padding:20px;
+        margin-top: 20px;
+        box-shadow:5px 5px 2px rgb(163, 177, 189);
+        border-radius: 25px;
+        font-size: x-large;
+          }
+      
+    </style>
+</head>
+<body>
+    <h1 >Articles</h1>
+ 
+       <div  class="main">
+             <% articles.forEach(article=>{ %>
+                <a class="article"
+                href="/article/<%= article.id %>" >
+                <%= article.title %>
+                </a>
+      
+            
+       <% }) %>
+
+
+
+
+    </div>
+</body>
+</html>

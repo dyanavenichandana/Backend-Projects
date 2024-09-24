@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        background-color:rgb(0, 0, 0);
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+        height: 90vh;
+      }
+      .main,.sub-main{
+        display:flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items:center;
+        color:black;
+        background-color:white;
+        width: 300px;
+        padding:10px;
+      }
+
+      .sub-main{
+        gap:10px;
+        
+      }
+    
+     
+      
+    </style>
+</head>
+<body>
+  <div >
+  <div class="main">
+    <h3>Enter your login credentials</h3>
+    <form class="sub-main" action="/process-login" method="POST">
+          <label for="usename">usename</label>
+          <input type="text" 
+          
+                 name="username" 
+                
+                 value= "<%=locals.username %>"
+                 required>
+
+                 <label for="password">password</label>
+          <input type="password"
+            
+                 name="password"
+                 
+                 value="<%=locals.password%>" required>
+
+          <div>
+                <button type="submit">
+                      Submit
+                </button>
+          </div>
+    </form>
+  </div>
+</div>
+    
+</body>
+</html>
