@@ -1,6 +1,10 @@
+
 const express=require('express')
 const Post=require('../models/post')
-
+const {titleValidation,
+    contentValidation,
+    categoryValidation,
+    tagsValidation}=require('../validations/validate')
 const router=express.Router()
 
 
@@ -8,11 +12,17 @@ const router=express.Router()
 router.post('/',async(req,res)=>{
     try{
        //validating the request
-       if(!req.body.title||!req.body.content||!req.body.category||!req.body.tags){
-        return res.status(400).send({
-            message:"please send all the required fields"
-        })
-       }
+       console.log(req.body)
+        try{
+          titleValidation(req.body.title);
+          contentValidation(req.body.content);
+          categoryValidation(req.body.category);
+         tagsValidation(req.body.tags)
+        }catch(error){
+            res.status(400).send({
+                'message':error.message
+            })
+        }
         
         const newPost=new Post({
          title:req.body.title,
